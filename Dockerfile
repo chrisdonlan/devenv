@@ -36,14 +36,14 @@ RUN vim +PluginInstall +qall
 
 # add makes
 WORKDIR root
-ADD *.mk /root/
+ADD mk /root/.
 ADD makefile /root/
 RUN make install
 
 # TODO: do git with makes
 # finalize with git 
 WORKDIR /root
-RUN git add *.mk
+RUN git add mk/*
 RUN git add makefile
 RUN git commit -m "(dev env) builders"
 
