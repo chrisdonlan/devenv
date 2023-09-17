@@ -8,7 +8,6 @@ docker_reqs=docker-ce docker-ce-cli containerd.io
 .PHONY:
 install-docker: docker-purge docker-prereqs | docker-reqs
 	sudo docker run hello-world
-	make activate-docker
 
 .PHONY: docker-purge docker-prereqs docker-reqs
 docker-purge: update | $(foreach v,${docker_purge},purge-${v})

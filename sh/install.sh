@@ -10,10 +10,10 @@ errorMsg(){
 getpkg(){
 	# $1: item to install
 	if [ -z "$1" ]; then 
-		errorMsg "bad argument" "<pkg-to-install>"
+		errorMsg "bad argument" "<pkg-to-install> ..."
 		exit 1
 	fi
-	sudo apt-get install -y $1
+	sudo apt-get install -y $@
 }
 getcmd() {
 	# $1: cmd 
@@ -25,5 +25,4 @@ getcmd() {
 	pkg=$( ( [[ -n "$2" ]] && echo "$2" ) || echo "$1" )
 	getpkg $pkg
 }
-
-getcmd ctags universal-ctags
+getpkg universal-ctags vim tmux
