@@ -10,9 +10,9 @@ install:
 .PHONY:
 re-tag: .FORCE
 	ctags -R --exclude=*-venv/ --python-kinds=-i .
-	ln tags ~/tags
+	ln -f tags ~/tags
 
 tags: $(SOURCES)
 	rm ~/tags
 	ctags --append --exclude=*-venv/ --python-kinds=-i $?
-	ln tags ~/tags
+	ln -f tags ~/tags
