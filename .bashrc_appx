@@ -1,3 +1,11 @@
 export APPX_SOURCED=1
 set -o vi
-source .bashrc_conda
+
+if [ -e '~/.bashrc_conda' ]; then
+  source .bashrc_conda
+fi
+
+# functions
+filesz(){
+  stat --printf="%s\n" $1 | numfmt --to=iec
+}
